@@ -1,0 +1,38 @@
+{
+  "root": true,
+  "project": {
+    "name": "DG2GO"
+  },
+  "api": {
+    "projectId": "y6e2eewm",
+    "dataset": "production"
+  },
+  "plugins": [
+    "@sanity/base",
+    "@sanity/components",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/desk-tool",
+    "tabs",
+    "@sanity/vision",
+    "media-library",
+    "media"
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        "@sanity/vision"
+      ]
+    }
+  },
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./schemas/schema"
+    },
+    {
+      "name": "part:@sanity/desk-tool/structure",
+      "path": "./deskStructure.js"
+    }
+  ]
+}

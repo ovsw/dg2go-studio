@@ -92,6 +92,12 @@ export default {
             Rule.unique().error('no duplicate dishes')
           ]
         },
+        {
+          fieldset: 'seo',
+          name: 'seo',
+          title: 'SEO Title',
+          type: 'seo',
+        },
       ],
     }
   ],

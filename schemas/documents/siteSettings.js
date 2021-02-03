@@ -17,7 +17,18 @@ export default {
       title: 'Website Description',
       description: 'Default SEO descriptions used for search engines and social media.',
       validation: Rule => Rule.required()
+    },
+    {
+      name: 'image',
+      type: 'image',
+      title: 'Default Share image',
+      description: 'Default share image used for search engines and social media.',
+      options: {
+        hotspot: true
+      },
+      validation: Rule => Rule.required()
     }
+
     // {
     //   name: 'author',
     //   type: 'reference',

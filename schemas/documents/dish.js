@@ -16,6 +16,26 @@ export default {
       validation: Rule => Rule.required().error('missing name')
     },
     {
+      name: 'dishId',
+      title: 'ID',
+      type: 'slug',
+      description: 'only capital letters and dashes, eg. for meatball spaghetti: SPG-MTB. ',
+      validation: (Rule) =>
+        Rule.custom((prodId) => {
+          if (typeof prodId === "undefined") {
+            return "missing ID"
+          }else if ( prodId.current === '') {
+            return "missing ID"
+          }
+          const regex = /^[A-Z-]+$/ // Regex pattern goes here
+          if (regex.test(prodId.current)) {
+            return true
+          } else {
+            return "Not a valid id: only capital letters and dashes" // Error message goes here
+          }
+        })
+    },
+    {
       name: 'description',
       title: 'Description',
       type: 'text',

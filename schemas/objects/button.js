@@ -5,17 +5,15 @@ export default {
   fields: [
     {
       name: 'text',
-      title: 'Button Text (required)',
+      title: 'Button Text',
       type: 'string',
       description: 'the text on the button',
-      validation: Rule => Rule.error('missing button text').required(),
     },
     {
       name: 'url',
-      title: 'Button Destination URL (optional)',
+      title: 'Button Destination URL',
       type: 'string',
       description: 'where should this button lead to?',
-      validation: Rule => Rule.error('missing button destination URL').required(),
     }
   ],
   preview: {

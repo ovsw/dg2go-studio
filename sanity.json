@@ -15,7 +15,9 @@
     "@sanity/desk-tool",
     "tabs",
     "@sanity/vision",
-    "media"
+    "media",
+    "@sanity/dashboard",
+    "dashboard-widget-netlify"
   ],
   "env": {
     "development": {
@@ -28,6 +30,10 @@
     {
       "name": "part:@sanity/base/schema",
       "path": "./schemas/schema"
+    },
+    {
+      "implements": "part:@sanity/dashboard/config",
+      "path": "./dashboardConfig.js"
     },
     {
       "name": "part:@sanity/desk-tool/structure",

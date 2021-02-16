@@ -65,7 +65,14 @@ export default {
           name: 'storeUrl',
           type: 'string',
           title: 'Link to Store',
-          validation: Rule => Rule.required().error('missing link to store')
+          description: '(optional) leave empty to not show an "Order" button on the page - NOTE: without this visitors will be unable to order the special!'
+        },
+        {
+          fieldset: 'main',
+          name: 'storeComingSoon',
+          type: 'string',
+          title: 'Coming Soon Text',
+          description: 'if you left the store link empty (no link to order) then enter some text below, saying when it will be available.'
         },
         // {
         //   name: 'date',

@@ -105,7 +105,7 @@ export default {
     select: {
     },
     prepare() {
-      const title = 'Pizza Shop Menu'
+      const title = 'On the Road Page'
       return {
         title: title,
       }

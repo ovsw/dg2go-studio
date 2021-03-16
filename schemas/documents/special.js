@@ -29,6 +29,23 @@ export default {
         },
         {
           fieldset: 'main',
+          name: 'date',
+          title: 'Pick-up Date',
+          type: 'date',
+          options: {
+            dateFormat: 'ddd Do MMM',
+          },
+          validation: Rule => Rule.required().error('missing date')
+        },
+        {
+          fieldset: 'main',
+          name: 'hideFromCustomers',
+          title: 'Hide from customers',
+          description: 'this option makes the special not show up on the specials listing page for customers. It will still be shown on the hidden page accessible to the DG2GO staff only. Used for placing late orders on specials.',
+          type: 'boolean'
+        },
+        {
+          fieldset: 'main',
           name: 'slug',
           type: 'slug',
           title: 'Slug',
@@ -74,15 +91,6 @@ export default {
           title: 'Coming Soon Text',
           description: 'if you left the store link empty (no link to order) then enter some text below, saying when it will be available.'
         },
-        // {
-        //   name: 'date',
-        //   title: 'Date',
-        //   type: 'date',
-        //   options: {
-        //     dateFormat: 'ddd Do MMM',
-        //   },
-        //   validation: Rule => Rule.required().error('missing date')
-        // },
         {
           fieldset: 'main',
           name: 'dishes',
@@ -133,11 +141,16 @@ export default {
   preview: {
     select: {
       name: 'content.name',
+      hideFromCustomers: 'content.hideFromCustomers',
       media: 'content.image'
     },
-    prepare({name, media}) {
+    prepare({name, hideFromCustomers, media}) {
+
+      const subtitle = hideFromCustomers ? 'HIDDEN' : ''
+
       return {
         title: name,
+        subtitle: subtitle,
         media
       }
     }

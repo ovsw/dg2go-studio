@@ -16,6 +16,26 @@ export default {
       validation: Rule => Rule.required().error('missing name')
     },
     {
+      name: 'dishId',
+      title: 'ID',
+      type: 'slug',
+      description: 'only capital letters and dashes, eg. for meatball spaghetti: SPG-MTB. ',
+      validation: (Rule) =>
+        Rule.custom((prodId) => {
+          if (typeof prodId === "undefined") {
+            return "missing ID"
+          }else if ( prodId.current === '') {
+            return "missing ID"
+          }
+          const regex = /^[A-Z-]+$/ // Regex pattern goes here
+          if (regex.test(prodId.current)) {
+            return true
+          } else {
+            return "Not a valid id: only capital letters and dashes" // Error message goes here
+          }
+        })
+    },
+    {
       name: 'description',
       description: 'optional, use for bigger items, like packs',
       title: 'Description',
@@ -23,11 +43,25 @@ export default {
       // validation: Rule => Rule.required().error('missing description')
     },
     {
+      name: 'priceNo',
+      title: 'Price ($)',
+      type: 'number',
+      precision: 2,
+      validation: Rule => Rule.required().error('missing price')
+    },
+    {
+      name: 'priceMeasure',
+      title: 'Price Measure',
+      description: 'the quantity to which the price appllies (eg:  "per pan" or "per 2 lb. container"',
+      type: 'string',
+      validation: Rule => Rule.required().error('missing price measure')
+    },
+    {
       name: 'price',
       title: 'Price ($)',
       type: 'string',
       validation: Rule => Rule.required().error('missing price')
-    }
+    },
     // {
     //   name: 'mainImage',
     //   type: 'image',
@@ -41,14 +75,13 @@ export default {
   preview: {
     select: {
       name: 'name',
-      // mainImage: 'mainImage',
-      price: 'price'
+      priceNo: 'priceNo',
+      priceMeasure: 'priceMeasure'
     },
-    prepare({name, price}) {
+    prepare({name, priceNo, priceMeasure}) {
       return {
         title: name,
-        // media: mainImage,
-        subtitle: price
+        subtitle: `${priceNo} ${priceMeasure}`,
       }
     }
   }

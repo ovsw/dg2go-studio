@@ -1,104 +1,114 @@
-import S from '@sanity/desk-tool/structure-builder'
-import { MdSettings, MdHome } from "react-icons/md"
-import { MdPerson } from "react-icons/md"
-import { GiPizzaCutter } from "react-icons/gi"
-import {FaRegStar, FaRegCalendarAlt, FaTruck} from "react-icons/fa"
+import S from "@sanity/desk-tool/structure-builder";
+import { MdSettings, MdHome } from "react-icons/md";
+import { MdPerson } from "react-icons/md";
+import { GiPizzaCutter } from "react-icons/gi";
+import { FaRegStar, FaRegCalendarAlt, FaTruck } from "react-icons/fa";
 
-
-const hiddenDocTypes = listItem =>
-  !['siteSettings', 'menuItem', 'menuPizzaShop', 'dish', 'dishPizzaShop', 'page', 'event', 'special', 'dishSpecial', 'specials', 'siteHome', 'menuMeals', 'events'].includes(listItem.getId())
+const hiddenDocTypes = (listItem) =>
+  ![
+    "siteSettings",
+    "menuItem",
+    "menuPizzaShop",
+    "dish",
+    "dishPizzaShop",
+    "page",
+    "event",
+    "special",
+    "dishSpecial",
+    "specials",
+    "siteHome",
+    "menuMeals",
+    "events",
+  ].includes(listItem.getId());
 
 export default () =>
   S.list()
-    .title('Content')
+    .title("Content")
     .items([
       S.listItem()
-        .title('Home')
+        .title("Home")
         .icon(MdHome)
         .child(
           S.editor()
-            .id('siteHome')
-            .schemaType('siteHome')
-            .documentId('siteHome')
+            .id("siteHome")
+            .schemaType("siteHome")
+            .documentId("siteHome")
         ),
       S.listItem()
-        .title('Settings')
+        .title("Settings")
         .icon(MdSettings)
         .child(
           S.editor()
-            .id('siteSettings')
-            .schemaType('siteSettings')
-            .documentId('siteSettings')
+            .id("siteSettings")
+            .schemaType("siteSettings")
+            .documentId("siteSettings")
         ),
       S.divider(),
       S.listItem()
-        .title('Pizza Shop Menu Page')
+        .title("Pizza Shop Menu Page")
         .icon(GiPizzaCutter)
         .child(
           S.editor()
-            .id('menuPizzaShop')
-            .schemaType('menuPizzaShop')
-            .documentId('menuPizzaShop')
+            .id("menuPizzaShop")
+            .schemaType("menuPizzaShop")
+            .documentId("menuPizzaShop")
         ),
       S.listItem()
-        .title('Pizza Shop Dishes')
-        .schemaType('dishPizzaShop')
-        .child(S.documentTypeList('dishPizzaShop').title('Pizza Shop Dishes')),
+        .title("Pizza Shop Dishes")
+        .schemaType("dishPizzaShop")
+        .child(S.documentTypeList("dishPizzaShop").title("Pizza Shop Dishes")),
       S.divider(),
       S.listItem()
-        .title('Meals Menu Page')
+        .title("Meals Menu Page")
         .icon(FaRegCalendarAlt)
         .child(
           S.editor()
-            .id('menuMeals')
-            .schemaType('menuMeals')
-            .documentId('menuMeals')
+            .id("menuMeals")
+            .schemaType("menuMeals")
+            .documentId("menuMeals")
         ),
       S.listItem()
-        .title('Meal Dishes')
-        .schemaType('dish')
-        .child(S.documentTypeList('dish').title('Meal Dishes')),
+        .title("Meal Dishes")
+        .schemaType("dish")
+        .child(S.documentTypeList("dish").title("Meal Dishes")),
       S.divider(),
       S.listItem()
-        .title('On the Road Page')
+        .title("On the Road Page")
         .icon(FaTruck)
         .child(
-          S.editor()
-            .id('events')
-            .schemaType('events')
-            .documentId('events')
+          S.editor().id("events").schemaType("events").documentId("events")
         ),
       S.listItem()
-        .title('On the Road Events')
-        .schemaType('event')
-        .child(S.documentTypeList('event').title('On the Road Events')),
+        .title("On the Road Events")
+        .schemaType("event")
+        .child(S.documentTypeList("event").title("On the Road Events")),
       S.listItem()
-        .title('On the Road Dishes')
-        .schemaType('dishEvent')
-        .child(S.documentTypeList('dishEvent').title('On the Road Dishes')),
+        .title("On the Road Dishes")
+        .schemaType("dishEvent")
+        .child(S.documentTypeList("dishEvent").title("On the Road Dishes")),
       S.divider(),
       S.listItem()
-        .title('Specials Page')
+        .title("Specials Page")
         .icon(FaRegStar)
         .child(
           S.editor()
-            .id('specials')
-            .schemaType('specials')
-            .documentId('specials')
+            .id("specials")
+            .schemaType("specials")
+            .documentId("specials")
         ),
       S.listItem()
-        .title('Specials List')
-        .schemaType('special')
-        .child(S.documentTypeList('special').title('Specials List')),
+        .title("Specials List")
+        .schemaType("special")
+        .child(S.documentTypeList("special").title("Specials List")),
       S.listItem()
-        .title('Special Dishes')
-        .schemaType('dishSpecial')
-        .child(S.documentTypeList('dishSpecial').title('Specials - Dishes')),
+        .title("Special Dishes")
+        .schemaType("dishSpecial")
+        .child(S.documentTypeList("dishSpecial").title("Specials - Dishes")),
       S.divider(),
       S.listItem()
-        .title('Misc Pages')
-        .schemaType('page')
-        .child(S.documentTypeList('page').title('Misc Pages')),
+        .title("Misc Pages")
+        .schemaType("page")
+        .child(S.documentTypeList("page").title("Misc Pages")),
       // S.listItem()
       //   .title('Blog posts')
       //   .schemaType('post')
@@ -116,4 +126,4 @@ export default () =>
       // defined in schema.js. We filter out those that we have
       // defined the structure above
       // ...S.documentTypeListItems().filter(hiddenDocTypes)
-    ])
+    ]);

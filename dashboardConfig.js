@@ -1,11 +1,11 @@
 export default {
   widgets: [
-      {
-      name: 'netlify',
+    {
+      name: "netlify",
       options: {
-        title: 'Deploy Website',
+        title: "Deploy Website",
         description:
-                '<h2>How to make changes live</h2><ol><li>Push the "Deploy" button below to trigger a re-build of the website once you\'ve published a some changes and want to make them live.</li><li>The status badge below will change to say "Building".</li> <li>Once it changes back to "Success" the changes are live.</li></oll>',
+          '<h2>How to make changes live</h2><ol><li>Push the "Deploy" button below to trigger a re-build of the website once you\'ve published a some changes and want to make them live.</li><li>The status badge below will change to say "Building".</li> <li>Once it changes back to "Success" the changes are live.</li></oll>',
         sites: [
           // {
           //   title: 'Sanity Studio',
@@ -14,23 +14,23 @@ export default {
           //   name: 'sanity-gatsby-blog-20-studio',
           // },
           {
-            title: 'Front-end',
-            apiId: '0cc46e7d-bcef-4dd7-ad18-74f3e1509b88',
-            buildHookId: '601226e523448f322630c7c1',
-            name: 'dg2go'
-          }
-        ]
-      }
+            title: "Front-end",
+            apiId: "0cc46e7d-bcef-4dd7-ad18-74f3e1509b88",
+            buildHookId: "601226e523448f322630c7c1",
+            name: "dg2go",
+          },
+        ],
+      },
     },
     // {
     //   name: 'sanity-tutorials'
     // },
     {
-      name: 'project-info'
+      name: "project-info",
     },
     // {name: 'structure-menu'},
     // {
     //   name: 'project-users'
     // }
-  ]
-}
+  ],
+};

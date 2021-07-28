@@ -1,33 +1,36 @@
 export default {
-  name: 'siteSettings',
-  type: 'document',
-  title: 'Site Settings',
-  __experimental_actions: ['update', 'create', /* 'delete', */ 'publish'],
+  name: "siteSettings",
+  type: "document",
+  title: "Site Settings",
+  __experimental_actions: ["update", "create", /* 'delete', */ "publish"],
   fields: [
     {
-      name: 'title',
-      type: 'string',
-      title: 'Website Title',
-      description: 'Default SEO title used for search engines and social media.',
-      validation: Rule => Rule.required()
+      name: "title",
+      type: "string",
+      title: "Website Title",
+      description:
+        "Default SEO title used for search engines and social media.",
+      validation: (Rule) => Rule.required(),
     },
     {
-      name: 'description',
-      type: 'text',
-      title: 'Website Description',
-      description: 'Default SEO descriptions used for search engines and social media.',
-      validation: Rule => Rule.required()
+      name: "description",
+      type: "text",
+      title: "Website Description",
+      description:
+        "Default SEO descriptions used for search engines and social media.",
+      validation: (Rule) => Rule.required(),
     },
     {
-      name: 'image',
-      type: 'image',
-      title: 'Default Share image',
-      description: 'Default share image used for search engines and social media.',
+      name: "image",
+      type: "image",
+      title: "Default Share image",
+      description:
+        "Default share image used for search engines and social media.",
       options: {
-        hotspot: true
+        hotspot: true,
       },
-      validation: Rule => Rule.required()
-    }
+      validation: (Rule) => Rule.required(),
+    },
 
     // {
     //   name: 'author',
@@ -36,5 +39,5 @@ export default {
     //   title: 'Author',
     //   to: [{type: 'author'}]
     // }
-  ]
-}
+  ],
+};

@@ -1,6 +1,7 @@
 import Tabs from "sanity-plugin-tabs"
 import {FaTruck} from "react-icons/fa"
 import moment from "moment"
+import { string } from "prop-types"
 
 export default {
   name: 'event',
@@ -17,6 +18,8 @@ export default {
       inputComponent: Tabs,
       fieldsets: [
         {name: 'main', title: 'Main'},
+        {name: 'centerEdge', title: 'CenterEdge'},
+        {name: 'foxyCart', title: 'FoxyCart'},
         {name: 'seo', title: 'SEO'}
       ],
       fields: [
@@ -26,6 +29,38 @@ export default {
           title: 'Event Name',
           type: 'string',
           validation: Rule => Rule.required().error('missing event name')
+        },
+        {
+          fieldset: 'main',
+          name: 'foxyCart',
+          title: 'Enable FoxyCart?',
+          type: 'boolean',
+          options: {
+            layout: 'checkbox',
+          },
+          description: 'must set to either on or off. If checked = Event uses FoxyCart store. Unchecked = event uses CenterEdge Store.',
+        },
+        {
+          fieldset: 'main',
+          name: 'hideFromCustomers',
+          title: 'Hide from customers',
+          options: {
+            layout: 'checkbox',
+          },
+          description: 'this option makes the special not show up on the specials listing page for customers. It will still be shown on the hidden page accessible to the DG2GO staff only. Used for placing late orders on events.',
+          type: 'boolean'
+        },
+        {
+          fieldset: 'main',
+          name: 'slug',
+          type: 'slug',
+          title: 'Slug',
+          validation: Rule => Rule.error('You have to fill out the slug of the page.').required(),
+          description: 'Some frontends will require a slug to be set to be able to show the event',
+          options: {
+            source: 'content.name',
+            maxLength: 96
+          }
         },
         {
           fieldset: 'main',
@@ -59,18 +94,28 @@ export default {
           validation: Rule => Rule.required().error('missing pick up location')
         },
         {
-          fieldset: 'main',
+          fieldset: 'centerEdge',
           name: 'storeUrl',
-          title: 'Link to Store Page',
+          title: 'CenterEdge Store Link',
           type: 'string',
-          validation: Rule => Rule.required().error('missing store link')
+          validation: Rule => Rule.custom((field, context) => (!context.document.content.foxyCart && (field === undefined || field === 'n/a')) ? "missing centerEdge store link" : true),
         },
         {
-          fieldset: 'main',
+          fieldset: 'centerEdge',
           name: 'menu',
           title: 'Menu',
           type: 'barePortableText',
-          validation: Rule => Rule.required().error('missing menu')
+          validation: Rule => Rule.custom((field, context) => (!context.document.content.foxyCart && field === undefined) ? "missing centerEdge menu" : true),
+        },
+        {
+          fieldset: 'foxyCart',
+          name: 'menuFoxy',
+          title: 'FoxyCart Menu',
+          type: 'array',
+          of: [
+            {type: 'eventMenuItem'}
+          ],
+          validation: Rule => Rule.custom((field, context) => (context.document.content.foxyCart && field === undefined) ? "missing FoxyCart menu" : true),
         },
         {
           fieldset: 'main',

@@ -72,6 +72,10 @@ export default () =>
         .title('On the Road Events')
         .schemaType('event')
         .child(S.documentTypeList('event').title('On the Road Events')),
+      S.listItem()
+        .title('On the Road Dishes')
+        .schemaType('dishEvent')
+        .child(S.documentTypeList('dishEvent').title('On the Road Dishes')),
       S.divider(),
       S.listItem()
         .title('Specials Page')

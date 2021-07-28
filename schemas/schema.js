@@ -6,6 +6,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // document schemas
 import dish from './documents/dish'
+import dishEvent from './documents/dishEvent'
 import dishPizzaShop from './documents/dishPizzaShop'
 import dishSpecial from './documents/dishSpecial'
 import event from './documents/event'
@@ -28,6 +29,7 @@ import bgImage from './objects/bgImage'
 import bodyPortableText from './objects/bodyPortableText'
 import button from './objects/button'
 import card from './objects/card'
+import eventMenuItem from './objects/eventMenuItem'
 import hero from './objects/hero'
 import iframeEmbed from './objects/iframeEmbed'
 import mainImage from './objects/mainImage'
@@ -60,6 +62,7 @@ export default createSchema({
     bodyPortableText,
     button,
     card,
+    eventMenuItem,
     hero,
     iframeEmbed,
     mainImage,
@@ -70,6 +73,7 @@ export default createSchema({
     seo,
     // documents
     dish,
+    dishEvent,
     dishPizzaShop,
     dishSpecial,
     event,

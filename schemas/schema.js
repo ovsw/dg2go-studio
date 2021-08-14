@@ -39,12 +39,19 @@ import youtube from "./objects/youtube";
 
 // Tabs
 import eventTabs from "./tabs/eventTabs";
+import eventsTabs from "./tabs/eventsTabs";
+import menuMealsTabs from "./tabs/menuMealsTabs";
+import menuPizzaShopTabs from "./tabs/menuPizzaShopTabs";
+import pageTabs from "./tabs/pageTabs";
+import siteHomeTabs from "./tabs/siteHomeTabs";
+import specialTabs from "./tabs/specialTabs";
+import specialsTabs from "./tabs/specialsTabs";
 import seo from "./tabs/seo";
 
 // sections
-import cardSection from "./objects/sections/cardSection";
+// import cardSection from "./objects/sections/cardSection";
 import ctaSection from "./objects/sections/cta";
-import faqSection from "./objects/sections/faqSection";
+// import faqSection from "./objects/sections/faqSection";
 import magSection from "./objects/sections/magazine";
 import reusedSection from "./objects/sections/reusedSection";
 
@@ -73,6 +80,13 @@ export default createSchema({
     // tabs
     seo,
     eventTabs,
+    eventsTabs,
+    menuMealsTabs,
+    menuPizzaShopTabs,
+    pageTabs,
+    siteHomeTabs,
+    specialTabs,
+    specialsTabs,
     // documents
     dish,
     dishEvent,
@@ -91,9 +105,9 @@ export default createSchema({
     specials,
     siteSettings,
     // sections
-    cardSection,
+    // cardSection,
     ctaSection,
-    faqSection,
+    // faqSection,
     magSection,
     reusedSection,
   ]),

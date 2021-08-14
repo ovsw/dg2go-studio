@@ -35,8 +35,8 @@ export default {
         { type: "ctaSection" },
         // {type: 'bigHeading'},
         // {type: 'tableSection'},
-        { type: "faqSection" },
-        { type: "cardSection" },
+        // { type: "faqSection" },
+        // { type: "cardSection" },
         // {type: 'sponsorsSection'}
       ],
     },

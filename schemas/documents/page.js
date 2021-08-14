@@ -16,59 +16,7 @@ export default {
   fields: [
     {
       name: "content",
-      type: "object",
-      title: "Content",
-      inputComponent: Tabs,
-      fieldsets: [
-        { name: "main", title: "Main" },
-        { name: "settings", title: "Settings" },
-        { name: "seo", title: "SEO" },
-      ],
-      fields: [
-        {
-          fieldset: "main",
-          name: "title",
-          title: "Title",
-          type: "string",
-        },
-        {
-          fieldset: "main",
-          name: "slug",
-          type: "slug",
-          title: "Slug",
-          validation: (Rule) =>
-            Rule.error("You have to fill out the slug of the page.").required(),
-          description:
-            "Some frontends will require a slug to be set to be able to show the post",
-          options: {
-            source: "content.title",
-            maxLength: 96,
-          },
-        },
-        {
-          fieldset: "main",
-          name: "body",
-          title: "Body",
-          type: "bodyPortableText",
-        },
-        {
-          fieldset: "settings",
-          name: "image",
-          title: "Header Image",
-          type: "image",
-          options: {
-            hotspot: true,
-          },
-          validation: (Rule) =>
-            Rule.required().error("page header image missing"),
-        },
-        {
-          fieldset: "seo",
-          name: "seo",
-          title: "SEO Title",
-          type: "seo",
-        },
-      ],
+      type: "pageTabs",
     },
   ],
   orderings: [

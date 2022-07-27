@@ -1,4 +1,4 @@
-import Tabs from "sanity-plugin-tabs";
+// import Tabs from "sanity-plugin-tabs";
 import { FaTruck } from "react-icons/fa";
 import moment from "moment";
 import { string } from "prop-types";

@@ -1,4 +1,4 @@
-import Tabs from "sanity-plugin-tabs";
+// import Tabs from "sanity-plugin-tabs";
 import { FaTruck } from "react-icons/fa";
 
 export default {

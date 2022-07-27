@@ -1,18 +1,24 @@
-import Tabs from "sanity-plugin-tabs";
+// import Tabs from "sanity-plugin-tabs";
+import { FaListAlt, FaGoogle, FaCog } from "react-icons/fa";
 
 export default {
   name: "menuMealsTabs",
   type: "object",
   title: "Content",
-  inputComponent: Tabs,
-  fieldsets: [
-    { name: "main", title: "Main" },
-    { name: "settings", title: "Settings" },
-    { name: "seo", title: "SEO" },
+  // inputComponent: Tabs,
+  // fieldsets: [
+  //   { name: "main", title: "Main" },
+  //   { name: "settings", title: "Settings" },
+  //   { name: "seo", title: "SEO" },
+  // ],
+  groups: [
+    { name: "main", title: "Main Content",icon: FaListAlt,  default: true},
+    { name: "settings", title: "Page Settings", icon: FaCog },
+    { name: "seo", title: "SEO", icon: FaGoogle },
   ],
   fields: [
     {
-      fieldset: "main",
+      group: "main",
       name: "topSections",
       title: "Top Page Sections",
       description: "this content appears before the meal menu listings",
@@ -28,7 +34,7 @@ export default {
       ],
     },
     {
-      fieldset: "main",
+      group: "main",
       name: "mealSchedule",
       title: "Meal Schedule",
       type: "array",
@@ -43,7 +49,7 @@ export default {
       ],
     },
     {
-      fieldset: "main",
+      group: "main",
       name: "bottomSections",
       title: "Bottom Page Sections",
       description:
@@ -58,7 +64,7 @@ export default {
       ],
     },
     {
-      fieldset: "settings",
+      group: "settings",
       name: "image",
       title: "Header Image",
       type: "image",
@@ -68,7 +74,7 @@ export default {
       validation: (Rule) => Rule.required().error("page header image missing"),
     },
     {
-      fieldset: "seo",
+      group: "seo",
       name: "seo",
       title: "SEO Title",
       type: "seo",

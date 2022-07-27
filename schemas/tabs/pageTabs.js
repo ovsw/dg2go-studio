@@ -1,24 +1,30 @@
-import Tabs from "sanity-plugin-tabs";
+// import Tabs from "sanity-plugin-tabs";
+import { FaListAlt, FaGoogle, FaCog } from "react-icons/fa";
 
 export default {
   name: "pageTabs",
   type: "object",
   title: "Content",
-  inputComponent: Tabs,
-  fieldsets: [
-    { name: "main", title: "Main" },
-    { name: "settings", title: "Settings" },
-    { name: "seo", title: "SEO" },
+  // inputComponent: Tabs,
+  // fieldsets: [
+  //   { name: "main", title: "Main" },
+  //   { name: "settings", title: "Settings" },
+  //   { name: "seo", title: "SEO" },
+  // ],
+  groups: [
+    { name: "main", title: "Main Content",icon: FaListAlt,  default: true},
+    { name: "settings", title: "Page Settings", icon: FaCog },
+    { name: "seo", title: "SEO", icon: FaGoogle },
   ],
   fields: [
     {
-      fieldset: "main",
+      group: "main",
       name: "title",
       title: "Title",
       type: "string",
     },
     {
-      fieldset: "main",
+      group: "main",
       name: "slug",
       type: "slug",
       title: "Slug",
@@ -32,13 +38,13 @@ export default {
       },
     },
     {
-      fieldset: "main",
+      group: "main",
       name: "body",
       title: "Body",
       type: "bodyPortableText",
     },
     {
-      fieldset: "settings",
+      group: "settings",
       name: "image",
       title: "Header Image",
       type: "image",
@@ -48,7 +54,7 @@ export default {
       validation: (Rule) => Rule.required().error("page header image missing"),
     },
     {
-      fieldset: "seo",
+      group: "seo",
       name: "seo",
       title: "SEO Title",
       type: "seo",

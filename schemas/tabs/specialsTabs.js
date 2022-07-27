@@ -1,18 +1,24 @@
-import Tabs from "sanity-plugin-tabs";
+// import Tabs from "sanity-plugin-tabs";
+import { FaListAlt, FaGoogle, FaCog } from "react-icons/fa";
 
 export default {
   name: "specialsTabs",
   type: "object",
   title: "Content",
-  inputComponent: Tabs,
-  fieldsets: [
-    { name: "main", title: "Main" },
-    { name: "seo", title: "SEO" },
-    { name: "settings", title: "Page Settings" },
+  // inputComponent: Tabs,
+  // fieldsets: [
+  //   { name: "main", title: "Main" },
+  //   { name: "settings", title: "Page Settings" },
+  //   { name: "seo", title: "SEO" },
+  // ],
+  groups: [
+    { name: "main", title: "Main Content",icon: FaListAlt,  default: true},
+    { name: "settings", title: "Page Settings", icon: FaCog },
+    { name: "seo", title: "SEO", icon: FaGoogle },
   ],
   fields: [
     {
-      fieldset: "main",
+      group: "main",
       name: "topSections",
       title: "Top Page Sections",
       description: "this content appears before the specials listing",
@@ -28,7 +34,7 @@ export default {
       ],
     },
     {
-      fieldset: "main",
+      group: "main",
       name: "specials",
       title: "Specials List",
       type: "array",
@@ -41,7 +47,7 @@ export default {
       // validation: Rule => Rule.required().error('Specials menu is empty')
     },
     {
-      fieldset: "main",
+      group: "main",
       name: "bottomSections",
       title: "Bottom Page Sections",
       description:
@@ -56,7 +62,7 @@ export default {
       ],
     },
     {
-      fieldset: "settings",
+      group: "settings",
       name: "image",
       title: "Header Image",
       type: "image",
@@ -66,7 +72,7 @@ export default {
       validation: (Rule) => Rule.required().error("page header image missing"),
     },
     {
-      fieldset: "seo",
+      group: "seo",
       name: "seo",
       title: "SEO Title",
       type: "seo",

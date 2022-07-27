@@ -1,24 +1,30 @@
-import Tabs from "sanity-plugin-tabs";
+// import Tabs from "sanity-plugin-tabs";
+import { FaListAlt, FaGoogle, FaCog } from "react-icons/fa";
 
 export default {
   name: "specialTabs",
   type: "object",
   title: "Content",
-  inputComponent: Tabs,
-  fieldsets: [
-    { name: "main", title: "Main" },
-    { name: "seo", title: "SEO" },
+  // inputComponent: Tabs,
+  // fieldsets: [
+  //   { name: "main", title: "Main" },
+  //   { name: "seo", title: "SEO" },
+  // ],
+  groups: [
+    { name: "main", title: "Main Content",icon: FaListAlt,  default: true},
+    // { name: "settings", title: "Page Settings", icon: FaCog },
+    { name: "seo", title: "SEO", icon: FaGoogle },
   ],
   fields: [
     {
-      fieldset: "main",
+     group: "main",
       name: "name",
       type: "string",
       title: "Special's Name",
       validation: (Rule) => Rule.required().error("missing name"),
     },
     {
-      fieldset: "main",
+     group: "main",
       name: "date",
       title: "Pick-up Date",
       type: "date",
@@ -28,20 +34,20 @@ export default {
       validation: (Rule) => Rule.required().error("missing date"),
     },
     {
-      fieldset: "main",
+     group: "main",
       name: "time",
       title: "Pick-up Time (optional)",
       type: "string",
     },
     {
-      fieldset: "main",
+     group: "main",
       name: "shortDescription",
       type: "string",
       title: "Short Description",
       validation: (Rule) => Rule.required().error("missing description"),
     },
     {
-      fieldset: "main",
+     group: "main",
       name: "salesStarted",
       title: "Start Selling",
       options: {
@@ -52,7 +58,7 @@ export default {
       type: "boolean",
     },
     {
-      fieldset: "main",
+     group: "main",
       name: "hideFromCustomers",
       title: "Hide from customers",
       options: {
@@ -63,7 +69,7 @@ export default {
       type: "boolean",
     },
     {
-      fieldset: "main",
+     group: "main",
       name: "slug",
       type: "slug",
       title: "Slug",
@@ -77,7 +83,7 @@ export default {
       },
     },
     {
-      fieldset: "main",
+     group: "main",
       name: "image",
       type: "bgImage",
       title: "Main image",
@@ -85,28 +91,28 @@ export default {
     },
 
     {
-      fieldset: "main",
+     group: "main",
       name: "description",
       type: "basicPortableText",
       title: "Full Description",
       validation: (Rule) => Rule.required().error("missing description"),
     },
     // {
-    //   fieldset: 'main',
+    //  group: 'main',
     //   name: 'storeUrl',
     //   type: 'string',
     //   title: 'Link to Store',
     //   description: '(optional) leave empty to not show an "Order" button on the page - NOTE: without this visitors will be unable to order the special!'
     // },
     // {
-    //   fieldset: 'main',
+    //  group: 'main',
     //   name: 'storeComingSoon',
     //   type: 'string',
     //   title: 'Coming Soon Text',
     //   description: 'if you left the store link empty (no link to order) then enter some text below, saying when it will be available.'
     // },
     {
-      fieldset: "main",
+     group: "main",
       name: "dishes",
       title: "Special's Dishes",
       description:
@@ -123,7 +129,7 @@ export default {
       // ]
     },
     {
-      fieldset: "seo",
+     group: "seo",
       name: "seo",
       title: "SEO Title",
       type: "seo",

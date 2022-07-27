@@ -1,4 +1,4 @@
-import Tabs from "sanity-plugin-tabs";
+// import Tabs from "sanity-plugin-tabs";
 import { GiPizzaCutter } from "react-icons/gi";
 
 export default {

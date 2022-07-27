@@ -1,4 +1,4 @@
-import Tabs from "sanity-plugin-tabs";
+// import Tabs from "sanity-plugin-tabs";
 import { GrRestaurant } from "react-icons/gr";
 
 export default {

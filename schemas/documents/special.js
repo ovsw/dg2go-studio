@@ -1,4 +1,4 @@
-import Tabs from "sanity-plugin-tabs";
+// import Tabs from "sanity-plugin-tabs";
 import { BiDish } from "react-icons/bi";
 import moment from "moment";
 

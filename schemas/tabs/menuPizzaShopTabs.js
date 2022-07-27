@@ -1,18 +1,24 @@
-import Tabs from "sanity-plugin-tabs";
+// import Tabs from "sanity-plugin-tabs";
+import { FaListAlt, FaGoogle, FaCog } from "react-icons/fa";
 
 export default {
   name: "menuPizzaShopTabs",
   type: "object",
   title: "Content",
-  inputComponent: Tabs,
-  fieldsets: [
-    { name: "main", title: "Main" },
-    { name: "settings", title: "Settings" },
-    { name: "seo", title: "SEO" },
+  // inputComponent: Tabs,
+  // fieldsets: [
+  //   { name: "main", title: "Main" },
+  //   { name: "settings", title: "Settings" },
+  //   { name: "seo", title: "SEO" },
+  // ],
+  groups: [
+    { name: "main", title: "Main Content",icon: FaListAlt,  default: true},
+    { name: "settings", title: "Page Settings", icon: FaCog },
+    { name: "seo", title: "SEO", icon: FaGoogle },
   ],
   fields: [
     {
-      fieldset: "main",
+      group: "main",
       name: "topSections",
       title: "Top Page Sections",
       description:
@@ -29,7 +35,7 @@ export default {
       ],
     },
     {
-      fieldset: "main",
+      group: "main",
       name: "originalPizzaMenuImage",
       title: "Pizza Menu Image",
       type: "bgImage",
@@ -37,7 +43,7 @@ export default {
         Rule.required().error("Original Pizza image missing"),
     },
     {
-      fieldset: "main",
+      group: "main",
       name: "originalPizzaMenu",
       title: "Original Pizza Menu",
       type: "array",
@@ -56,7 +62,7 @@ export default {
       ],
     },
     {
-      fieldset: "main",
+      group: "main",
       name: "deepDishPizzaMenuImage",
       title: "Deep Dish Pizza Menu Image",
       type: "bgImage",
@@ -64,7 +70,7 @@ export default {
         Rule.required().error("Deep Dish Pizza image missing"),
     },
     {
-      fieldset: "main",
+      group: "main",
       name: "deepDishPizzaMenu",
       title: "Deep Dish Pizza Menu",
       type: "array",
@@ -83,7 +89,7 @@ export default {
       ],
     },
     {
-      fieldset: "main",
+      group: "main",
       name: "juniorHoagieMenuImage",
       title: "Junior Hoagies Menu Image",
       type: "bgImage",
@@ -91,7 +97,7 @@ export default {
         Rule.required().error("Junior Hoagies image missing"),
     },
     {
-      fieldset: "main",
+      group: "main",
       name: "juniorHoagieMenu",
       title: "Marianna's Junior Hoagie Menu",
       type: "array",
@@ -110,14 +116,14 @@ export default {
       ],
     },
     {
-      fieldset: "main",
+      group: "main",
       name: "frozenPastaMenuImage",
       title: "Frozen Pasta Menu Image",
       type: "bgImage",
       validation: (Rule) => Rule.required().error("Frozen pasta image missing"),
     },
     {
-      fieldset: "main",
+      group: "main",
       name: "frozenPastaMenu",
       title: "Frozen Pasta Menu",
       type: "array",
@@ -136,7 +142,7 @@ export default {
       ],
     },
     {
-      fieldset: "main",
+      group: "main",
       name: "bottomSections",
       title: "Bottom Page Sections",
       description:
@@ -151,7 +157,7 @@ export default {
       ],
     },
     {
-      fieldset: "settings",
+      group: "settings",
       name: "image",
       title: "Header Image",
       type: "image",
@@ -161,7 +167,7 @@ export default {
       validation: (Rule) => Rule.required().error("page header image missing"),
     },
     {
-      fieldset: "seo",
+      group: "seo",
       name: "seo",
       title: "SEO Title",
       type: "seo",

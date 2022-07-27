@@ -1,10 +1,10 @@
-import Tabs from "sanity-plugin-tabs";
+// import Tabs from "sanity-plugin-tabs";
 
 export default {
   name: "eventsTabs",
   type: "object",
   title: "Content",
-  inputComponent: Tabs,
+  // inputComponent: Tabs,
   fieldsets: [
     { name: "main", title: "Main" },
     { name: "settings", title: "Settings" },

@@ -1,26 +1,34 @@
-import Tabs from "sanity-plugin-tabs";
+// import Tabs from "sanity-plugin-tabs";
+
+import { FaListAlt, FaStore, FaShoppingBasket, FaGoogle } from "react-icons/fa";
 
 export default {
   name: "eventTabs",
   type: "object",
   title: "Content",
-  inputComponent: Tabs,
-  fieldsets: [
-    { name: "main", title: "Main" },
-    { name: "centerEdge", title: "CenterEdge" },
-    { name: "foxyCart", title: "FoxyCart" },
-    { name: "seo", title: "SEO" },
+  // inputComponent: Tabs,
+  // fieldsets: [
+  //   { name: "main", title: "Main" },
+  //   { name: "centerEdge", title: "CenterEdge" },
+  //   { name: "foxyCart", title: "FoxyCart" },
+  //   { name: "seo", title: "SEO" },
+  // ],
+  groups: [
+    { name: "main", title: "Main Content",icon: FaListAlt,  default: true},
+    { name: "centerEdge", title: "CenterEdge", icon: FaStore },
+    { name: "foxyCart", title: "FoxyCart", icon: FaShoppingBasket },
+    { name: "seo", title: "SEO", icon: FaGoogle },
   ],
   fields: [
     {
-      fieldset: "main",
+      group: "main",
       name: "name",
       title: "Event Name",
       type: "string",
       validation: (Rule) => Rule.required().error("missing event name"),
     },
     {
-      fieldset: "main",
+      group: "main",
       name: "foxyCart",
       title: "Enable FoxyCart?",
       type: "boolean",
@@ -31,7 +39,7 @@ export default {
         "must set to either on or off. If checked = Event uses FoxyCart store. Unchecked = event uses CenterEdge Store.",
     },
     {
-      fieldset: "main",
+      group: "main",
       name: "hideFromCustomers",
       title: "Hide from customers",
       options: {
@@ -42,7 +50,7 @@ export default {
       type: "boolean",
     },
     {
-      fieldset: "main",
+      group: "main",
       name: "slug",
       type: "slug",
       title: "Slug",
@@ -56,7 +64,7 @@ export default {
       },
     },
     {
-      fieldset: "main",
+      group: "main",
       name: "date",
       title: "Date",
       type: "date",
@@ -66,28 +74,28 @@ export default {
       validation: (Rule) => Rule.required().error("missing event date"),
     },
     {
-      fieldset: "main",
+      group: "main",
       name: "time",
       title: "Time",
       type: "string",
       validation: (Rule) => Rule.required().error("missing time"),
     },
     {
-      fieldset: "main",
+      group: "main",
       name: "ordersDue",
       title: "Orders Due",
       type: "string",
       validation: (Rule) => Rule.required().error("missing orders due date"),
     },
     {
-      fieldset: "main",
+      group: "main",
       name: "location",
       title: "Pick up location",
       type: "string",
       validation: (Rule) => Rule.required().error("missing pick up location"),
     },
     {
-      fieldset: "centerEdge",
+      group: "centerEdge",
       name: "storeUrl",
       title: "CenterEdge Store Link",
       type: "string",
@@ -100,7 +108,7 @@ export default {
         ),
     },
     {
-      fieldset: "centerEdge",
+      group: "centerEdge",
       name: "menu",
       title: "Menu",
       type: "barePortableText",
@@ -112,7 +120,7 @@ export default {
         ),
     },
     {
-      fieldset: "foxyCart",
+      group: "foxyCart",
       name: "menuFoxy",
       title: "FoxyCart Menu",
       type: "array",
@@ -125,14 +133,14 @@ export default {
         ),
     },
     {
-      fieldset: "main",
+      group: "main",
       name: "image",
       title: "Image",
       type: "bgImage",
       validation: (Rule) => Rule.required().error("missing image"),
     },
     {
-      fieldset: "seo",
+      group: "seo",
       name: "seo",
       title: "SEO",
       type: "seo",

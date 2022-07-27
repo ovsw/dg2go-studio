@@ -1,5 +1,5 @@
 import React from "react";
-import Tabs from "sanity-plugin-tabs";
+// import Tabs from "sanity-plugin-tabs";
 import { ImSection } from "react-icons/im";
 
 export default {

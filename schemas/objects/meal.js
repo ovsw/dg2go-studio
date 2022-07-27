@@ -1,4 +1,4 @@
-import Tabs from "sanity-plugin-tabs";
+// import Tabs from "sanity-plugin-tabs";
 import { FiCalendar } from "react-icons/fi";
 import { CgUnavailable } from "react-icons/cg";
 

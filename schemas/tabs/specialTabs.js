@@ -116,7 +116,7 @@ export default {
       name: "dishes",
       title: "Special's Dishes",
       description:
-        'you can edit each items price, pre-order and pick-up dates and times by editing the item. You can edit an item by clicking on the "link" icon below, or by fiding it in the "Special Dishes" section of the main menu',
+        'you can edit each items price, pre-order and pick-up dates and times by editing the item. You can edit an item by clicking it again once selected, or by fiding it in the "Special Dishes" section of the main menu',
       type: "array",
       of: [
         {

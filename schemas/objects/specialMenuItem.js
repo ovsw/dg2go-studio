@@ -1,5 +1,6 @@
 // import Tabs from "sanity-plugin-tabs";
 import { GrRestaurant } from "react-icons/gr";
+import React from 'react'
 
 export default {
   name: "specialMenuItem",
@@ -14,6 +15,13 @@ export default {
     "delete",
   ] /* 'create', 'delete' */,
   fields: [
+    {
+      name: "hidden",
+      type: "boolean",
+      title: "Hidden?",
+      description: "Turn on to hide this item from this special's menu",
+      initialValue: true,
+    },
     {
       name: "dish",
       title: "Dish",
@@ -46,15 +54,22 @@ export default {
   preview: {
     select: {
       name: "dish.name",
-      // mainImage: 'mainImage',
+      hidden: "hidden",
+      // mainImage: <GrStop />,
       price: "dish.price",
       preOrderDeadline: "preOrderDeadline",
       pickUpDate: "pickUpDate",
     },
-    prepare({ name, price, preOrderDeadline, pickUpDate }) {
+    prepare({ name, price, preOrderDeadline, pickUpDate, hidden }) {
+      const status = hidden ? "disabled" : "active";
+      const EMOJIS = {
+        active: '✅',
+        disabled: '🚫'
+      }
       return {
         title: `${name} - ${price}`,
         // media: mainImage,
+        media: <span style={{fontSize: '1.5rem'}}>{status ? EMOJIS[status] : '✅'}</span>,
         subtitle: `PO: ${preOrderDeadline} | PU: ${pickUpDate}`,
       };
     },

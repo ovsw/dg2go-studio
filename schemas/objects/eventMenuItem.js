@@ -21,27 +21,27 @@ export default {
       to: [{ type: "dishEvent" }],
       validation: (Rule) => Rule.required().error("missing dish"),
     },
-    // {
-    //   name: 'preOrderDeadline',
-    //   title: 'Pre-order Deadline',
-    //   type: 'string',
-    //   validation: Rule => Rule.required().error('missing pre-order deadline')
-    // },
-    // {
-    //   name: 'pickUpDate',
-    //   title: 'Pick Up Date',
-    //   type: 'string',
-    //   validation: Rule => Rule.required().error('missing pick-up date')
-    // },
-    // {
-    //   name: 'mainImage',
-    //   type: 'image',
-    //   title: 'Image',
-    //   options: {
-    //     hotspot: true
-    //   },
-    //   validation: Rule => Rule.required().error('missing image')
-    // }
+    {
+      name: 'preOrderDeadline',
+      title: 'Pre-order Deadline',
+      type: 'string',
+      validation: Rule => Rule.required().error('missing pre-order deadline')
+    },
+    {
+      name: 'pickUpDate',
+      title: 'Pick Up Date',
+      type: 'string',
+      validation: Rule => Rule.required().error('missing pick-up date')
+    },
+    {
+      name: 'mainImage',
+      type: 'image',
+      title: 'Image',
+      options: {
+        hotspot: true
+      },
+      validation: Rule => Rule.required().error('missing image')
+    }
   ],
   preview: {
     select: {

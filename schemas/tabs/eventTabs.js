@@ -29,6 +29,21 @@ export default {
     },
     {
       group: "main",
+      name: "pickupTimeOfDay",
+      title: "Pick-up Time of Day",
+      description: "this shows up in the cart next to the item.",
+      type: "string",
+      options: {
+        list: [
+          { title: "lunch", value: "lunch" },
+          { title: "dinner", value: "dinner" },
+        ],
+      },
+      validation: (Rule) =>
+        Rule.required().error("missing time of day for pickup"),
+    },
+    {
+      group: "main",
       name: "foxyCart",
       title: "Enable FoxyCart?",
       type: "boolean",
